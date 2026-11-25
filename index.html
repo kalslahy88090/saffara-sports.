@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071426"><title>صافره | المنصة الرياضية العربية</title>
+<style>
+:root{--bg:#071426;--panel:#10223a;--panel2:#142b46;--line:#203b5a;--txt:#f4f7fb;--muted:#9db0c6;--green:#29d391;--gold:#f4c66a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#173b5b 0,transparent 48%),var(--bg);color:var(--txt);font-family:Tahoma,Arial,sans-serif}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.top{position:sticky;top:0;z-index:5;background:#071426ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{max-width:1200px;margin:auto;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}.logo{font-size:27px;font-weight:900;letter-spacing:-1px}.logo span{color:var(--green)}nav{display:flex;gap:18px;color:#d5e2ef;font-size:14px}.live{color:var(--green);font-size:12px;font-weight:bold}
+.wrap{max-width:1200px;margin:auto;padding:24px 18px}.welcome{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:25px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(110deg,#102d49,#102039 65%,#14334a)}h1{font-size:29px;margin:0 0 8px}.welcome p{color:var(--muted);margin:0;line-height:1.8}.tag{background:#173c4b;color:#8ef0c8;border:1px solid #28634f;padding:9px 13px;border-radius:30px;font-size:12px;white-space:nowrap}
+.layout{display:grid;grid-template-columns: minmax(0,1fr) 285px;gap:18px;margin-top:20px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:17px;margin-bottom:18px}.head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.head h2{font-size:18px;margin:0}.muted{color:var(--muted);font-size:12px}.tabs{display:flex;gap:7px;flex-wrap:wrap}.match-tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:0 0 12px}.match-search{flex:1;min-width:190px;background:#0b1b30;border:1px solid var(--line);border-radius:9px;padding:10px 12px;color:var(--txt);font:inherit;font-size:13px;outline:none}.match-search:focus{border-color:var(--green);box-shadow:0 0 0 2px #29d39122}.empty-results{display:none;text-align:center;color:var(--muted);padding:22px 8px;font-size:13px}.tab,.sport{border:1px solid var(--line);background:#0b1b30;color:#d6e1ed;padding:8px 12px;border-radius:9px;font-size:12px}.tab.active,.sport.active{background:#14533f;border-color:#238b65;color:#a6f4d5}
+.match{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:14px 8px;border-bottom:1px solid var(--line)}.match:last-child{border:0}.match-open{cursor:pointer;border-radius:10px;transition:background .18s}.match-open:hover,.match-open:focus-visible{background:#17324f;outline:2px solid #29d391;outline-offset:2px}.team{display:flex;align-items:center;gap:9px;font-weight:bold}.team:last-child{justify-content:flex-start}.crest{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#1c3857;font-size:17px}.score{text-align:center;font-weight:900;font-size:20px;min-width:75px}.score small{display:block;font-size:10px;color:var(--green);font-weight:normal;margin-top:4px}.score.upcoming{font-size:14px;color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:right;padding:11px 7px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:normal;font-size:11px}.pos{color:var(--green);font-weight:bold}.league-list{display:grid;gap:8px}.league{padding:11px;border-radius:10px;background:#0b1b30;color:#dce8f4;font-size:13px;display:flex;justify-content:space-between}.league b{color:var(--gold)}
+.women-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.activity{background:#0b1b30;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}.activity i{font-style:normal;font-size:25px;display:block;margin-bottom:7px}.activity strong{font-size:13px}.activity small{display:block;color:var(--muted);font-size:10px;margin-top:5px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:25px;border-top:1px solid var(--line);margin-top:12px}
+@media(max-width:800px){nav{display:none}.layout{grid-template-columns:1fr}.welcome{align-items:flex-start;flex-direction:column}.women-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:430px){.wrap{padding:15px 11px}.panel{padding:13px}.match{gap:4px}.team{font-size:12px;gap:5px}.crest{width:29px;height:29px}.score{min-width:60px}.logo{font-size:23px}}
+
+.dialog-backdrop{position:fixed;inset:0;z-index:20;background:#020914c9;display:none;align-items:center;justify-content:center;padding:18px}
+.dialog-backdrop.show{display:flex}.match-dialog{width:min(100%,520px);background:#10223a;border:1px solid #315273;border-radius:18px;padding:20px;box-shadow:0 24px 80px #0009}
+.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.dialog-head h2{font-size:19px;margin:0}.close-dialog{border:1px solid var(--line);background:#0b1b30;color:var(--txt);border-radius:9px;padding:7px 11px}
+.dialog-teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;text-align:center;padding:16px 8px;background:#0b1b30;border-radius:12px;font-weight:bold}.dialog-score{font-size:24px;color:var(--gold)}
+.dialog-info{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.info-cell{background:#0b1b30;padding:11px;border-radius:10px}.info-cell small{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.info-cell strong{font-size:13px}.demo-note{color:#f4c66a;font-size:11px;line-height:1.7;margin:14px 0 0}
+@media(max-width:430px){.dialog-info{grid-template-columns:1fr}.match-dialog{padding:15px}}
+</style></head>
+<body>
+<header class="top"><div class="bar"><a class="logo" href="#">صاف<span>ره</span> ⚽</a><nav><a href="#matches">المباريات</a><a href="#standings">الترتيب</a><a href="#leagues">البطولات</a><a href="#women">رياضات ولياقة المرأة</a></nav><span class="live">● منصة رياضية عربية</span></div></header>
+<main class="wrap">
+<section class="welcome"><div><h1>كل الرياضة… في صافره</h1><p>تابع فريقك، اكتشف البطولات، وشاهد نتائج وترتيب المباريات في مكان واحد.</p></div><span class="tag">نسخة تجريبية · بيانات توضيحية</span></section>
+<div class="layout"><div>
+<section class="panel" id="matches"><div class="head"><h2>المباريات</h2><span class="muted">ابحث عن فريقك أو بطولتك</span></div><div class="match-tools"><input id="matchSearch" class="match-search" type="search" placeholder="اكتب اسم الفريق أو البطولة..." aria-label="البحث في المباريات"><div class="tabs"><button class="tab active" data-filter="all">الكل</button><button class="tab" data-filter="live">مباشر</button><button class="tab" data-filter="today">اليوم</button><button class="tab" data-filter="next">قادمة</button></div></div>
+<div id="matchList">
+<div class="match match-open" role="button" tabindex="0" aria-haspopup="dialog" aria-label="عرض تفاصيل مباراة الهلال والنصر" data-kind="live" data-home="الهلال" data-away="النصر" data-competition="دوري روشن السعودي" data-venue="ملعب المملكة أرينا" data-status="مباشر · 67′" data-extra="حدث توضيحي: هدف للهلال في الدقيقة 67"><div class="team"><span class="crest">🔵</span> الهلال</div><div class="score">2 - 1<small>مباشر · 67′</small></div><div class="team"><span class="crest">🟡</span> النصر</div></div>
+<div class="match match-open" role="button" tabindex="0" aria-haspopup="dialog" aria-label="عرض تفاصيل مباراة الأهلي والاتحاد" data-kind="today" data-home="الأهلي" data-away="الاتحاد" data-competition="دوري روشن السعودي" data-venue="مدينة الملك عبدالله الرياضية" data-status="اليوم · 20:00" data-extra="لم تُضف أحداث للمباراة في هذا النموذج التجريبي"><div class="team"><span class="crest">🟢</span> الأهلي</div><div class="score upcoming">20:00<small>اليوم</small></div><div class="team"><span class="crest">⚫</span> الاتحاد</div></div>
+<div class="match match-open" role="button" tabindex="0" aria-haspopup="dialog" aria-label="عرض تفاصيل مباراة ريال مدريد وبرشلونة" data-kind="next" data-home="ريال مدريد" data-away="برشلونة" data-competition="الدوري الإسباني" data-venue="ملعب سانتياغو برنابيو" data-status="غداً · 22:00" data-extra="موعد توضيحي ضمن بيانات النموذج التجريبي"><div class="team"><span class="crest">🔴</span> ريال مدريد</div><div class="score upcoming">غداً 22:00<small>قادمة</small></div><div class="team"><span class="crest">🔵</span> برشلونة</div></div>
+</div><div class="empty-results" id="emptyMatches">لا توجد مباريات تطابق بحثك. جرّب اسماً آخر.</div><p class="muted">النتائج والأوقات المعروضة أمثلة للتصميم وليست بيانات مباشرة.</p></section>
+<section class="panel" id="standings"><div class="head"><h2>ترتيب دوري روشن السعودي</h2><span class="muted">مثال توضيحي</span></div><table><thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فارق</th><th>نقاط</th></tr></thead><tbody><tr><td class="pos">1</td><td>الهلال</td><td>10</td><td>+18</td><td>28</td></tr><tr><td class="pos">2</td><td>النصر</td><td>10</td><td>+15</td><td>25</td></tr><tr><td>3</td><td>الأهلي</td><td>10</td><td>+9</td><td>22</td></tr><tr><td>4</td><td>الاتحاد</td><td>10</td><td>+7</td><td>20</td></tr></tbody></table></section>
+<section class="panel" id="women"><div class="head"><h2>رياضات ولياقة المرأة</h2><span class="muted">قسم مستقل</span></div><div class="women-grid">
+<div class="activity"><i>🧘‍♀️</i><strong>اليوغا</strong><small>مرونة وهدوء</small></div><div class="activity"><i>🩰</i><strong>الباليه</strong><small>توازن ورشاقة</small></div><div class="activity"><i>🤸‍♀️</i><strong>البيلاتس</strong><small>قوة وثبات</small></div><div class="activity"><i>💃</i><strong>الزومبا</strong><small>حركة ونشاط</small></div><div class="activity"><i>🏊‍♀️</i><strong>السباحة</strong><small>لياقة شاملة</small></div><div class="activity"><i>🚶‍♀️</i><strong>المشي</strong><small>نشاط يومي</small></div><div class="activity"><i>🙆‍♀️</i><strong>التمدد</strong><small>مرونة العضلات</small></div></div></section>
+</div><aside>
+<section class="panel" id="leagues"><div class="head"><h2>البطولات</h2><span class="muted">الأبرز</span></div><div class="league-list"><div class="league">دوري روشن السعودي <b>🇸🇦</b></div><div class="league">الدوري الإنجليزي <b>🏴</b></div><div class="league">الدوري الإسباني <b>🇪🇸</b></div><div class="league">دوري أبطال أوروبا <b>🏆</b></div><div class="league">كأس العالم <b>🌍</b></div></div></section>
+<section class="panel"><div class="head"><h2>الرياضات</h2></div><div class="tabs"><button class="sport active">كرة القدم</button><button class="sport">كرة السلة</button><button class="sport">التنس</button><button class="sport">الكرة الطائرة</button><button class="sport">رياضات أخرى</button></div><p class="muted">سيتم توسيع التغطية لبقية الرياضات في المراحل التالية.</p></section>
+<section class="panel"><div class="head"><h2>عن صافره</h2></div><p class="muted">صافره منصة عربية لمتابعة المباريات والبطولات والنتائج والترتيب، مع مساحة مخصصة للرياضة واللياقة النسائية.</p></section>
+</aside></div></main>
+
+<div class="dialog-backdrop" id="matchDialog" aria-hidden="true">
+  <section class="match-dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <div class="dialog-head"><h2 id="dialogTitle">تفاصيل المباراة</h2><button class="close-dialog" id="closeDialog" type="button" aria-label="إغلاق التفاصيل">إغلاق ✕</button></div>
+    <div class="dialog-teams"><span id="detailHome">الفريق الأول</span><span class="dialog-score" id="detailScore">-</span><span id="detailAway">الفريق الثاني</span></div>
+    <div class="dialog-info">
+      <div class="info-cell"><small>البطولة</small><strong id="detailCompetition">—</strong></div>
+      <div class="info-cell"><small>الحالة / الموعد</small><strong id="detailStatus">—</strong></div>
+      <div class="info-cell" style="grid-column:1/-1"><small>الملعب</small><strong id="detailVenue">—</strong></div>
+      <div class="info-cell" style="grid-column:1/-1"><small>أحداث المباراة</small><strong id="detailExtra">—</strong></div>
+    </div>
+    <p class="demo-note">تنبيه: هذه تفاصيل تجريبية لشرح طريقة عمل الصفحة، وليست معلومات أو نتائج رياضية مباشرة.</p>
+  </section>
+</div>
+
+<footer>© صافره الرياضي — نموذج أولي قيد التطوير</footer>
+<script>
+let activeMatchFilter='all';
+const matchSearch=document.getElementById('matchSearch');
+function filterMatches(){
+  const term=(matchSearch.value||'').trim().toLocaleLowerCase('ar');
+  let visible=0;
+  document.querySelectorAll('.match').forEach(m=>{
+    const text=[m.dataset.home,m.dataset.away,m.dataset.competition].join(' ').toLocaleLowerCase('ar');
+    const filterOK=activeMatchFilter==='all'||m.dataset.kind===activeMatchFilter;
+    const searchOK=!term||text.includes(term);
+    m.hidden=!(filterOK&&searchOK);
+    if(!m.hidden)visible++;
+  });
+  document.getElementById('emptyMatches').style.display=visible?'none':'block';
+}
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');activeMatchFilter=b.dataset.filter;filterMatches();
+}));
+matchSearch.addEventListener('input',filterMatches);
+
+const dialog=document.getElementById('matchDialog');
+const closeDialog=()=>{dialog.classList.remove('show');dialog.setAttribute('aria-hidden','true');};
+function openMatchDetails(match){
+  document.getElementById('detailHome').textContent=match.dataset.home;
+  document.getElementById('detailAway').textContent=match.dataset.away;
+  document.getElementById('detailCompetition').textContent=match.dataset.competition;
+  document.getElementById('detailStatus').textContent=match.dataset.status;
+  document.getElementById('detailVenue').textContent=match.dataset.venue;
+  document.getElementById('detailExtra').textContent=match.dataset.extra;
+  const score=match.querySelector('.score');
+  document.getElementById('detailScore').textContent=score ? score.childNodes[0].textContent.trim() : '—';
+  dialog.classList.add('show');dialog.setAttribute('aria-hidden','false');
+  document.getElementById('closeDialog').focus();
+}
+document.querySelectorAll('.match-open').forEach(match=>{
+  match.addEventListener('click',()=>openMatchDetails(match));
+  match.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openMatchDetails(match);}});
+});
+document.getElementById('closeDialog').addEventListener('click',closeDialog);
+dialog.addEventListener('click',event=>{if(event.target===dialog)closeDialog();});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&dialog.classList.contains('show'))closeDialog();});
+
+</script></body></html>
